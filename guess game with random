@@ -1,0 +1,28 @@
+import random
+randNumber=random.randint(1,100)
+print(randNumber)
+guess=None
+guesses=0
+
+while(guess!=randNumber):
+    guess=int(input('enter yout guess number '))
+    guesses+=1
+    if guess==randNumber:
+        print('your answer is correct ')
+    else:
+        if(guess>randNumber):
+            print('you guess it wrong, enter a small num ')
+        else:
+             print('you guess it wrong, enter a large num ')
+
+    
+
+print(f'you guessed the number in {guesses}')
+
+with open(r'C:\Users\vijay\Desktop\al.txt','r') as f:
+    highscore=int(f.read())
+
+if (guesses<highscore):
+    print('you made highscore ')
+    with open (r'C:\Users\vijay\Desktop\al.txt','w') as f:
+        f.write(str(guesses))
